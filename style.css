@@ -4,6 +4,50 @@ body{
 }
 
 .game {
+    width:92%;
     text-align: center;
-    margin-top: 100px;
+    max-width: 1200px;
+    margin: 50px auto;
+    min-height: 600px;
+    border: 2px solid #ffffff;
+    padding-top: 49px;
+    box-sizing: border-box;
+}
+
+.game h1{
+    font-size: 90px;
+    margin: 0;
+}
+
+.door {
+    width: 190px;
+    height: 310px;
+    border: 3px solid #ffffff;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+.handle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+}
+
+.desk {
+    width: 310px;
+    height: 130px;
+    border: 3px solid #ffffff;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#message {
+    margin-top: 30px;
+    font-size: 20px;
+    min-height: 30px;
 }
