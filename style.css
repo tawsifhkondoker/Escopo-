@@ -82,3 +82,7 @@ body{
     border: 1px solid #ffffff;
     cursor: pointer;
 }
+
+.photo {
+    display: none;
+}
