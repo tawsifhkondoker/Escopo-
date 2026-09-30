@@ -46,8 +46,39 @@ body{
     text-align: center;
 }
 
+.box {
+    width: 180px;
+    height: 130px;
+    border: 3px solid #ffffff;
+    margin: 50px auto;
+    text-align: center;
+}
+
+
 #message {
     margin-top: 30px;
     font-size: 20px;
     min-height: 30px;
+}
+
+#codeInput {
+    display: none;
+    margin: 10px auto;
+    padding: 8px;
+    width: 120px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+#unlockButton {
+    display: none;
+    margin: 8px auto;
+    padding: 6px 14px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    cursor: pointer;
 }
