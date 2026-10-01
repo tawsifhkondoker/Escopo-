@@ -8,7 +8,7 @@
         <body>
             <div class="game">
                
-                <h1>11:59</h1>
+               <h1 id="clock">11:59</h1>
                <p>You are shut in a room.</p>
 
                 <div class="door" id = "door">
@@ -18,19 +18,22 @@
 
                 <div class="desk" id = "desk">
                     <p>DESK</p>
+                    
                 </div>
-                
+                <div class="compartment" id="compartment">
+                    <p>LOCKED COMPARTMENT</p>
+                </div>
 
                 <div class ="box" id = "box">
                     <p>LOCKED BOX</p>
-                    <input id="codeInput" type="text" placeholder="Enter code" maxlength="8" >
-                    <button id="unlockButton">UNLOCK</button>
-
-                    <div class="photo" id = "photo" onclick="event.stopPropagation()">
+                    <div class="photo" id = "photo">
                         <p>11:36 PM</p>
                     </div>
                 </div>
-                
+                <div class="code-panel">
+                    <input id="codeInput" type="text" placeholder="Enter code" maxlength="8" >
+                    <button id="unlockButton">UNLOCK</button>
+                </div>
                 <p id="message"></p>
             
             </div>
@@ -40,6 +43,7 @@
         </body>
     
 </html>
+
 
 
 
