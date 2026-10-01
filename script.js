@@ -5,13 +5,26 @@ const box = document.getElementById("box");
 const codeInput = document.getElementById("codeInput");
 const unlockButton = document.getElementById("unlockButton");
 const photo = document.getElementById("photo");
+const clock = document.getElementById("clock");
+const compartment = document.getElementById("compartment");
+let photoFound = false;
+let clockChecked = false;
 
 door.addEventListener("click", function() {
     message.textContent = "The door is locked, find a way to unlock it.";
 });
 
 desk.addEventListener("click", function() {
-    message.textContent = "There is a note under the desk. It says: 48 - 27 - 65";
+
+    if (photoFound === true && clockChecked === true) {
+        message.textContent = "There is a scratched code under the desk: 23 : 11 : 36";
+        compartment.style.display = "block";
+    } else if (photoFound === true) {
+        message.textContent = "Something has changed. There is a small mark underneath the desk.";
+    } else {
+        message.textContent = "There is a note under the desk. It says: 48 - 27 - 65";
+    }
+
 });
 
 box.addEventListener("click", function(event) {
@@ -44,4 +57,21 @@ codeInput.addEventListener("input", function() {
     codeInput.value = code;
 });
 
+photo.addEventListener("click", function(event) {
+    photoFound = true;
+    event.stopPropagation();
+    message.textContent = "The back of the photograph says: 23 minutes. That's all it says.";
+
+});
+
+clock.addEventListener("click", function() {
+
+    if (photoFound === true) {
+        clockChecked = true;
+        message.textContent = "23 minutes. The clock hasn't moved.";
+    } else {
+        message.textContent = "The clock is frozen at 11:59.";
+    }
+
+});
 
