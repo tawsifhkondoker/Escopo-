@@ -7,8 +7,11 @@ const unlockButton = document.getElementById("unlockButton");
 const photo = document.getElementById("photo");
 const clock = document.getElementById("clock");
 const compartment = document.getElementById("compartment");
+const key = document.getElementById("key");
+const restartButton = document.getElementById("restartButton");
 let photoFound = false;
 let clockChecked = false;
+let activeLock = "box";
 
 door.addEventListener("click", function() {
     message.textContent = "The door is locked, find a way to unlock it.";
@@ -38,9 +41,12 @@ if (event.target === codeInput || event.target === unlockButton || event.target 
 
 unlockButton.addEventListener("click", function() {
     const code = codeInput.value;
-    if (code === "16-09-25") {
+    if (activeLock === "box" && code === "16-09-25") {
         message.textContent = "The box is unlocked!";
         photo.style.display = "block";
+    } else if (activeLock === "compartment" && code === "23-11-36") {
+        message.textContent = "The compartment is unlocked!";
+        key.style.display = "block";
     } else {
         message.textContent = "Incorrect code. Try again.";
     }
@@ -75,3 +81,38 @@ clock.addEventListener("click", function() {
 
 });
 
+compartment.addEventListener("click", function() {
+
+    message.textContent = "The compartment is locked. It requires a code.";
+    activeLock = "compartment";
+
+    codeInput.style.display = "block";
+    unlockButton.style.display = "block";
+
+});
+
+key.addEventListener("dragstart", function(event) {
+    event.dataTransfer.setData("text/plain", "key");
+});
+
+door.addEventListener("dragover", function(event) {
+    event.preventDefault();
+});
+
+door.addEventListener("drop", function(event) {
+    const item = event.dataTransfer.getData("text/plain");
+
+    if (item === "key") {
+        message.textContent = "The door is unlocked!";
+        door.style.transform = "scaleX(0.1)";
+        door.style.transformOrigin = "left";
+        key.style.display = "none";
+        setTimeout(function() {
+            document.querySelector(".game").style.display = "none";
+            document.getElementById("endingScreen").style.display = "block";
+        }, 1000);
+    }
+});
+restartButton.addEventListener("click", function() {
+    location.reload();
+});
